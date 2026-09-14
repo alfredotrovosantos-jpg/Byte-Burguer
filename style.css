@@ -1,0 +1,245 @@
+/* ===================================================
+   RESET BÁSICO E VARIÁVEIS DE ESTILO
+=================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-dark: #121212;
+    --bg-card: #1e1e1e;
+    --bg-alt: #181818;
+    --primary-gold: #d4af37;
+    --text-color: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-dark);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ===================================================
+   ESTILOS DO CABEÇALHO E LOGO
+=================================================== */
+.header {
+    background-color: rgba(18, 18, 18, 0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 0;
+}
+
+/* Ajustes de tamanho e proporção da imagem do Logo */
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 55px; /* Define altura ideal para não quebrar a barra de navegação */
+    width: auto;  /* Mantém as proporções da imagem */
+    border-radius: 50%; /* Mantém o formato circular da logo */
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: var(--primary-gold);
+}
+
+/* ===================================================
+   ESTILOS DO BANNER PRINCIPAL (HERO)
+=================================================== */
+.banner {
+    height: 100vh;
+    /* Aponta para o arquivo de imagem do banner gerado */
+    background: url('banner-blend-nobre.png') center/cover no-repeat;
+    position: relative;
+}
+
+/* Camada escura de sobreposição para garantir leitura do texto */
+.banner-overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.banner-content {
+    max-width: 800px;
+    margin-top: 60px;
+}
+
+.banner h1 {
+    font-size: 3rem;
+    color: var(--primary-gold);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.banner p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-gold);
+    color: #121212;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+    background-color: #b89528;
+    transform: translateY(-2px);
+}
+
+/* ===================================================
+   ESTILOS GERAIS DE SEÇÃO
+=================================================== */
+.section {
+    padding: 80px 0;
+}
+
+.bg-alt {
+    background-color: var(--bg-alt);
+}
+
+.title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary-gold);
+    margin-bottom: 40px;
+}
+
+/* ===================================================
+   GRIDS DE CARDS (PRODUTOS E INSTITUCIONAL)
+=================================================== */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card, .info-box {
+    background-color: var(--bg-card);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+    border-radius: 8px;
+    padding: 25px;
+    transition: border-color 0.3s ease;
+}
+
+.card:hover, .info-box:hover {
+    border-color: var(--primary-gold);
+}
+
+.card h3, .info-box h3 {
+    color: var(--primary-gold);
+    margin-bottom: 10px;
+}
+
+.card p, .info-box p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.price {
+    display: block;
+    margin-top: 15px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.about-content p {
+    margin-bottom: 15px;
+}
+
+/* ===================================================
+   CONTATO E RODAPÉ
+=================================================== */
+.contact-wrapper {
+    text-align: center;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.footer {
+    background-color: #0a0a0a;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+/* ===================================================
+   RESPONSIVIDADE (MEDIA QUERIES)
+=================================================== */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .banner h1 {
+        font-size: 2.2rem;
+    }
+
+    .section {
+        padding: 50px 0;
+    }
+}
